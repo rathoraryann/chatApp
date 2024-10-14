@@ -1,0 +1,16 @@
+.messages{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.input{
+    background-color: white;
+    color: black;
+}
+
+.input::placeholder {
+    color: black;
+}
