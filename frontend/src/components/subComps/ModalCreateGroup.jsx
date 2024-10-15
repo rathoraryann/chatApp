@@ -39,7 +39,7 @@ const ModalCreateGroup = ({ children }) => {
         try {
             const response = await axios.get(`${window.location.origin}/api/user?search=${Value}`, {
                 headers: {
-                    Authorization: `${window.location.origin}/Bearer ${user.token}`
+                    Authorization: `Bearer ${user.token}`
                 }
             })
             setSearchedUsers(response.data)
