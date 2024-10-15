@@ -1,0 +1,1 @@
+.messages{display:flex;flex-direction:column;overflow-y:scroll;scrollbar-width:none}.input{background-color:#fff;color:#000}.input::placeholder{color:#000}::-webkit-scrollbar{width:0px}::-webkit-scrollbar-thumb{background-color:#00008b}::-webkit-scrollbar-thumb:hover{background-color:#040420}
