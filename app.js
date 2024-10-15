@@ -20,10 +20,10 @@ app.use("/api/user", userRoutes)
 app.use("/api/chat", chatRoutes)
 app.use("/api/message", messageRoutes)
 
-app.get('/', (req, res)=>{
-    app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-})
+// app.get('/', (req, res)=>{
+//     app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
+//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+// })
 
 
 // const __dirname1 = path.resolve();
@@ -31,6 +31,21 @@ app.get('/', (req, res)=>{
 // app.get("*", (req, res) =>
 //     res.sendFile(path.resolve(__dirname1, "frontend", "dist", "index.html"))
 // );
+
+
+// Serve the frontend's static files (adjust the path for Vite or CRA builds)
+app.use(express.static(path.join(__dirname, 'frontend/dist'))); // Vite output folder
+
+// Example API route
+app.get('/api/test', (req, res) => {
+  res.send({ message: "API working" });
+});
+
+// Catch-all for frontend routing (React/Vite)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
+});
+
 
 
 const server = app.listen(3000)
