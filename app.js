@@ -1,5 +1,6 @@
 const express = require("express")
 const cors = require("cors")
+const dotenv = require("dotenv").config()
 const userRoutes = require("./routes/userRoutes")
 const chatRoutes = require("./routes/chatRoutes")
 const messageRoutes = require("./routes/messageRoutes")
@@ -38,17 +39,18 @@ app.use(express.static(path.join(__dirname, 'frontend/dist'))); // Vite output f
 
 // Example API route
 app.get('/api/test', (req, res) => {
-  res.send({ message: "API working" });
+    res.send({ message: "API working" });
 });
 
 // Catch-all for frontend routing (React/Vite)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
 });
 
 
+const PORT = process.env.PORT || 3000
 
-const server = app.listen(3000)
+const server = app.listen(PORT)
 
 const io = require('socket.io')(server, {
     pingTimeout: 60000,

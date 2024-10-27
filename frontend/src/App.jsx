@@ -14,7 +14,6 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(true)
 
-
   const NotFound = () => {
     return (
       <div>

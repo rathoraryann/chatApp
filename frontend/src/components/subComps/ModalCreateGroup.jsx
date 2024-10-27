@@ -39,7 +39,7 @@ const ModalCreateGroup = ({ children }) => {
         try {
             const response = await axios.get(`${window.location.origin}/api/user?search=${Value}`, {
                 headers: {
-                    Authorization: `${window.location.origin}/Bearer ${user.token}`
+                    Authorization: `Bearer ${user.token}`
                 }
             })
             setSearchedUsers(response.data)
@@ -47,6 +47,8 @@ const ModalCreateGroup = ({ children }) => {
             console.log(error)
         }
     }
+
+
     const handleAddUser = (user) => {
         if (inputs.users.includes(user)) {
             toast({
@@ -83,7 +85,7 @@ const ModalCreateGroup = ({ children }) => {
             return;
         }
         try {
-            const createdGroup = await axios.post("${window.location.origin}/api/chat/group", {
+            const createdGroup = await axios.post(`${window.location.origin}/api/chat/group`, {
                 chatName: inputs.groupName,
                 users: JSON.stringify(inputs.users.map((u) => u._id))
             }, {
@@ -93,6 +95,7 @@ const ModalCreateGroup = ({ children }) => {
                 }
             })
             dispatch(unshiftChats({ chats: createdGroup.data }))
+
             onClose()
         } catch (error) {
             toast({
