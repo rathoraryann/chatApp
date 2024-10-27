@@ -79,7 +79,7 @@ const Signup = () => {
     }
     if (!isValidPass(inputs.password)) {
       toast({
-        title: "invalid password formate",
+        title: "invalid password format",
         description: "At least 8 characters in length, At least one uppercase letter (A-Z), At least one lowercase letter (a-z), At least one digit (0-9), At least one special character (like @, $, !, %, *, ?, &, etc.)",
         status: "error",
         duration: 3000,
