@@ -97,7 +97,7 @@ const Signup = () => {
           "Content-Type": "application/json"
         }
       })
-      console.log(response)
+      // console.log(response)
       if (response.data.msg == 'user exists') {
         toast({
           title: 'Email exists',
